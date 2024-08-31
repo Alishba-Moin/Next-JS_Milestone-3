@@ -1,113 +1,121 @@
-import Image from "next/image";
+'use client';
+
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 export default function Home() {
+  const router = useRouter();
+
+  const handleBuyNow = () => {
+    router.push('/cart'); 
+  };
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <div className="bg-gray-200 min-h-screen flex flex-col">
+   <header className="bg-gradient-to-r from-blue-800 via-blue-600 to-blue-400 text-white p-12 shadow-2xl relative">
+  <div className="absolute inset-0 bg-gray-800 opacity-40 blur-md"></div>
+  <div className="relative z-10 text-center">
+    <h1 className="text-6xl font-extrabold font-sans drop-shadow-lg">
+      Welcome to E-Shop</h1>
+    <p className="text-lg mt-4 font-sans drop-shadow-md">
+    Discover the best products for you! </p>
+    <div className="mt-8">
+      <Link href="/shop"
+        className="bg-orange-600 text-white px-8 py-4 rounded-lg shadow-lg hover:bg-orange-500 transition-transform transform hover:scale-105">
+        Shop Now </Link>
+    </div>
+  </div>
+</header>
+     <main className="flex-grow p-8">
+        <section id="shop" className="bg-slate-300 p-8 rounded-lg shadow-lg my-8">
+          <h2 className="text-4xl font-bold mb-6 text-blue-800">New Arrivals</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Example Product Card */}
+            <div className="bg-white border border-gray-200 p-4 rounded-lg text-center transform transition-transform hover:scale-105 hover:shadow-2xl">
+              <img
+                src="/photos/1.jpeg"
+                alt="Product 1"
+                className="w-full h-48 object-cover rounded-md mb-4"
+              />
+              <h3 className="text-2xl font-semibold text-gray-800">Product 1</h3>
+              <p className="mt-2 text-xl font-semibold text-teal-600">$29.99</p>
+              <button
+                onClick={handleBuyNow}
+                className="mt-4 bg-black text-white px-6 py-2 rounded-lg hover:bg-teal-700 transition-colors"> Buy Now
+              </button>
+            </div>
+              {/* Product Card 2 */}
+              <div className="bg-white border border-gray-200 p-4 rounded-lg text-center transform transition-transform hover:scale-105 hover:shadow-2xl">
+              <img src="/photos/2.jpg" alt="Product 2" className="w-full h-48 object-cover rounded-md mb-4" />
+              <h3 className="text-2xl font-semibold text-gray-800">Product 2</h3>
+              <p className="mt-2 text-xl font-semibold text-teal-600">$49.99</p>
+              <button  
+              onClick={handleBuyNow}
+              className="mt-4 bg-black text-white px-6 py-2 rounded-lg hover:bg-teal-700 transition-colors"> Buy Now
+              </button>
+            </div>
+            {/* Product Card 3 */}
+            <div className="bg-white border border-gray-200 p-4 rounded-lg text-center transform transition-transform hover:scale-105 hover:shadow-2xl">
+              <img src="/photos/3.jpeg" alt="Product 3" className="w-full h-48 object-cover rounded-md mb-4" />
+              <h3 className="text-2xl font-semibold text-gray-800">Product 3</h3>
+              <p className="mt-2 text-xl font-semibold text-teal-600">$39.99</p>
+              <button 
+              onClick={handleBuyNow}
+              className="mt-4 bg-black text-white px-6 py-2 rounded-lg hover:bg-teal-700 transition-colors"> Buy Now
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-slate-300 p-8 rounded-lg shadow-lg my-8">
+          <h2 className="text-4xl font-bold mb-6 text-blue-800">Best Sellers</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Product Card 4 */}
+            <div className="bg-white border border-gray-200 p-4 rounded-lg text-center transform transition-transform hover:scale-105 hover:shadow-2xl">
+              <img src="/photos/4.jpeg" alt="Product 4" className="w-full h-48 object-cover rounded-md mb-4" />
+              <h3 className="text-2xl font-semibold text-gray-800">Product 4</h3>
+              <p className="mt-2 text-xl font-semibold text-teal-600">$59.99</p>
+              <button
+              onClick={handleBuyNow}
+              className="mt-4 bg-black text-white px-6 py-2 rounded-lg hover:bg-teal-700 transition-colors"> Buy Now
+              </button>
+            </div>
+            {/* Product Card 5 */}
+            <div className="bg-white border border-gray-200 p-4 rounded-lg text-center transform transition-transform hover:scale-105 hover:shadow-2xl">
+              <img src="/photos/5.jpeg" alt="Product 5" className="w-full h-48 object-cover rounded-md mb-4" />
+              <h3 className="text-2xl font-semibold text-gray-800">Product 5</h3>
+              <p className="mt-2 text-xl font-semibold text-teal-600">$69.99</p>
+              <button 
+              onClick={handleBuyNow}
+               className="mt-4 bg-black text-white px-6 py-2 rounded-lg hover:bg-teal-700 transition-colors"> Buy Now
+              </button>
+            </div>
+            {/* Product Card 6 */}
+            <div className="bg-white border border-gray-200 p-4 rounded-lg text-center transform transition-transform hover:scale-105 hover:shadow-2xl">
+              <img src="/photos/6.jpeg" alt="Product 6" className="w-full h-48 object-cover rounded-md mb-4" />
+              <h3 className="text-2xl font-semibold text-gray-800">Product 6</h3>
+              <p className="mt-2 text-xl font-semibold text-teal-600">$79.99</p>
+              <button 
+              onClick={handleBuyNow}
+              className="mt-4 bg-black text-white px-6 py-2 rounded-lg hover:bg-teal-700 transition-colors"> Buy Now
+              </button>
+          </div>
+          </div>
+        </section>
+      </main>
+
+      <footer className="bg-blue-900 text-blue-100 p-4 mt-12">
+        <p className="text-center text-sm">&copy; 2024 E-Shop. All rights reserved.</p>
+        <div className="text-center mt-4">
+          <Link href="/" className="text-blue-100 hover:underline">
+            Privacy Policy
+          </Link>{" "}
+          |{" "}
+          <Link href="/" className="text-blue-100 hover:underline">
+            Terms of Service
+          </Link>
         </div>
-      </div>
-
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+      </footer>
+    </div>
   );
 }
